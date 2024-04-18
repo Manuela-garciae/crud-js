@@ -1,7 +1,7 @@
 
 
 //fetch get
-fetch('http://localhost:3000/infojson')
+fetch('http://localhost:3000/users')
 
 //el response lo trasforma a json
 .then(response => response.json())
@@ -29,6 +29,15 @@ fetch('http://localhost:3000/infojson')
     });
     
 })
-
-
 .catch(error => console.log(error));
+
+async function showID() {
+    try {
+        const response = await fetch('http://localhost:3000/users/4');
+        const json = await response.json();
+        console.log('Hola Manuela',json);
+    }catch(error) {
+        console.log('Aun no existe', error);
+    }
+}
+showID();

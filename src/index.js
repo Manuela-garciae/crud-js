@@ -40,8 +40,15 @@ app.get('/openai', async (req, res) => {
 });
 
 
-app.get('/principal-post', (req, res) =>{
+app.get('/post', (req, res) =>{
     res.sendFile('./post.html', {root: 'public'});
+});
+
+app.get('/put', (req, res) =>{
+    res.sendFile('./put.html', {root: 'public'});
+});
+app.get('/delete', (req, res) =>{
+    res.sendFile('./delete.html', {root: 'public'});
 });
 
 // ruta 404

@@ -1,11 +1,11 @@
 
-fetch('http://localhost:3000/users', {
-    method: "POST",
+fetch('http://localhost:3000/users/4', {
+    method: "DELETE",
     headers: {
         "Content-type": "application/json",  
     },
     body: JSON.stringify({
-      id: 4,
+      id: 1,
       nombre: "Manuela",
       edad: 26,
       email: "Manuela@gmail.com",

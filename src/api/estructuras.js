@@ -20,6 +20,10 @@ router.get('/infojson',(req, res)=>{
         nombre: "Camila",
         edad: 19,
         email: 'cami@gmail.com'
+    },{
+        nombre: "Siomara",
+        edad: 44,
+        email: 'xioma.marce@gmail.com'
     }]);
 });
 
