@@ -18,6 +18,7 @@ router.get('/users', (req, res) => {
 //SHOW
 //mostrar un usuario por id
 router.get('/users/:id', (req, res) => {
+    //los parametros de la url son por id
     const id = parseInt(req.params.id);
     const user = users.find((item) => item.id === id);
     //validar el user
@@ -29,6 +30,7 @@ router.get('/users/:id', (req, res) => {
 //CREATE
 //agg por medio de body un dato
 router.post('/users', (req, res) => {
+    //se van a tomar los datos por el body a traves de un json
     const userInfo = req.body;
     users.push(userInfo);
     console.log(users);
@@ -38,9 +40,11 @@ router.post('/users', (req, res) => {
 //UPDATE
 //Actualiza por medio del id un elemento en el body 
 router.put('/users/:id', (req, res) => {
+    //los parametros de la url son por id
     const id = parseInt(req.params.id);
     //valicacion de id
     const user = users.find((item) => item.id === id);
+    //se van a tomar los datos por el body a traves de un  json sin id 
     const userInfo = req.body;
     if(!user){
         return res.status(404).json({'error': 'no se puede encontrar el id'})
@@ -52,8 +56,9 @@ router.put('/users/:id', (req, res) => {
 });
 
 //deletee
-//elimina usuarios 
+//elimina usuario 
 router.delete('/users/:id', (req, res) => {
+    //los parametros de la url son por id 
     const id = parseInt(req.params.id);
     //valicacion de id
     const index = users.findIndex((item) => item.id === id);
@@ -61,6 +66,7 @@ router.delete('/users/:id', (req, res) => {
         return res.status(404).json({'error': 'no se puede encontrar el id'})
     }
     users.splice(index, 1);
+    //muestra el mensaje y lista los usuarios 
     res.status(201).json({"mensaje": "Usuario eliminado", "data": users}); 
 
 });
